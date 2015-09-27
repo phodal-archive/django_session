@@ -1,0 +1,16 @@
+{% load blogs_tags %}
+
+<html>
+  <head>
+    <title>Blog Listing</title>
+  </head>
+  <body>
+    <h1>Blogs</h1>
+    {% for blog in blogs %}
+      <h2>{{ blog.title }}</h2>
+      <p>{{ blog.date |date:"F j, Y"  }} ~ {% current_time "%Y-%m-%d %I:%M %p" %}</p>
+      <p>{{ blog.date | date:"F j, Y" | cut:'Sep' }}</p>
+      <p>{{ blog.content }}</p>
+    {% endfor %}
+  </body>
+</html>
